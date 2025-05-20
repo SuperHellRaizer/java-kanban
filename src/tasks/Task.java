@@ -1,10 +1,12 @@
 package tasks;
 
+import java.util.Objects;
+
 public class Task {
-    private Integer id;
-    private String name;
-    private String description;
-    private TaskStatus status;
+    protected Integer id;
+    protected String name;
+    protected String description;
+    protected TaskStatus status;
 
     public Task(String name, String description, TaskStatus status) {
         this.name = name;
@@ -52,5 +54,17 @@ public class Task {
                 ", description='" + description + '\'' +
                 ", status=" + status +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {      // создан через Generate
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return Objects.equals(id, task.id);
+    }
+
+    @Override
+    public int hashCode() {                 // создан через Generate
+        return Objects.hashCode(id);
     }
 }

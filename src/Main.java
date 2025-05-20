@@ -1,3 +1,8 @@
+/* Сергей, здравствуйте! Большое спасибо за Ваши комментарии! К сожалению, я не совсем понял, где именно оставлять
+* сообщение для Вас, оставил его здесь. Если так не надо - прошу прощения! Расписал логику работы метода
+* updateEpicStatus в комментариях. Если это тоже неверно, то тогда переделаю метод как-то по другому. Добавил
+* несколько тестов в Main по скорректированным методам. */
+
 import tasks.*;
 
 public class Main {
@@ -11,7 +16,7 @@ public class Main {
                 TaskStatus.NEW));
 
         // Создание Эпика с двумя подзачами:
-        Epic epic1 = taskManager.createEpic(new Epic("Эпик №1", "Описание эпика №1"));
+        Epic epic1 = taskManager.createEpic(new Epic("AEZAKMI", "HESOYAM"));
         Subtask subtask1 = taskManager.createSubtask(new Subtask("Подзадача №1", "Описание подзадачи №1",
                 TaskStatus.NEW, epic1.getId()));
         Subtask subtask2 = taskManager.createSubtask(new Subtask("Подзадача №2", "Описание подзадачи №2",
@@ -30,6 +35,42 @@ public class Main {
         System.out.println("\nВсе подзадачи:");
         System.out.println(taskManager.getAllSubtasks());
 
+        //Обновление(корректировка) эпика №1
+        System.out.println("\nОбновление(корректировка) эпика №1.");
+        Epic updatedEpic1 = new Epic(epic1.getId(), "Эпик №1", "Описание эпика №1");
+        taskManager.updateEpic(updatedEpic1);
+
+        //Вывод исправленного эпика №1
+        System.out.println("\nВывод исправленного эпика №1:");
+        System.out.println(taskManager.getEpicById(epic1.getId()));
+
+        //Добавление подзадачи в эпик №1
+        System.out.println("\nДобавление подзадачи в эпик №1:");
+        Subtask subtask4 = taskManager.createSubtask(new Subtask("WANRLTV", "YECGAA",
+                TaskStatus.NEW, epic1.getId()));
+
+        //Вывод всех подзадач у эпика №1
+        System.out.println("\nВывод всех подзадач у эпика №1:");
+        System.out.println(taskManager.getAllSubtasksByEpicId(epic1));
+
+        //Обновление подзадачи
+        System.out.println("\nОбновление подзадачи:");
+        Subtask updatedSubtask4 = new Subtask(subtask4.getId(), "Подзадача №4", "Описание подзадачи №4",
+                TaskStatus.NEW, epic1.getId());
+        taskManager.updateSubtask(updatedSubtask4);
+
+        //Вывод всех подзадач у эпика №1
+        System.out.println("\nВывод всех подзадач у эпика №1:");
+        System.out.println(taskManager.getAllSubtasksByEpicId(epic1));
+
+        //Удаляем добавленную подзадачу
+        System.out.println("\nУдаляем добавленную подзадачу:");
+        taskManager.deleteSubtask(subtask4.getId());
+
+        //Вывод всех подзадач у эпика №1
+        System.out.println("\nВывод всех подзадач у эпика №1:");
+        System.out.println(taskManager.getAllSubtasksByEpicId(epic1));
+
         // Вывод по одной задаче/эпику/подзадачи по идентификатору:
         System.out.println("\nВывести одну задачу:");
         System.out.println(taskManager.getTaskById(1));
@@ -44,7 +85,7 @@ public class Main {
         task2.setStatus(TaskStatus.DONE);
         taskManager.updateTask(task2);
 
-        subtask1.setStatus(TaskStatus.DONE);
+        subtask1.setStatus(TaskStatus.NEW);
         taskManager.updateSubtask(subtask1);
         subtask2.setStatus(TaskStatus.IN_PROGRESS);
         taskManager.updateSubtask(subtask2);

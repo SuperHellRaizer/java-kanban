@@ -3,11 +3,17 @@ package tasks;
 import java.util.ArrayList;
 
 public class Epic extends Task {
-    private ArrayList<Subtask> subtasks;
+    final private ArrayList<Subtask> subtasks;
 
     public Epic(String name, String description) {
         super(name, description, TaskStatus.NEW);
         this.subtasks = new ArrayList<>();
+    }
+
+    public Epic(int id, String name, String description) {
+        super(name, description, TaskStatus.NEW);
+        this.subtasks = new ArrayList<>();
+        this.id = id;
     }
 
     public ArrayList<Subtask> getSubtasks() {
@@ -17,10 +23,10 @@ public class Epic extends Task {
     @Override
     public String toString() {
         return "Epic{" +
-                "id=" + getId() +
-                ", name='" + getName() + '\'' +
-                ", description='" + getDescription() + '\'' +
-                ", status=" + getStatus() +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
                 ", subtasksCount=" + subtasks.size() +
                 '}';
     }
