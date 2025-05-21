@@ -57,14 +57,14 @@ public class Task {
     }
 
     @Override
-    public boolean equals(Object o) {      // создан через Generate
+    public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
         return Objects.equals(id, task.id);
     }
 
     @Override
-    public int hashCode() {                 // создан через Generate
+    public int hashCode() {
         return Objects.hashCode(id);
     }
 }
