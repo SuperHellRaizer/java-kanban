@@ -36,7 +36,7 @@ public class Main {
         Epic updatedEpic1 = new Epic(epic1.getId(), "Эпик №1", "Описание эпика №1");
         taskManager.updateEpic(updatedEpic1);
 
-        //Вывод исправленного эпика №1
+        // Вывод исправленного эпика №1
         System.out.println("\nВывод исправленного эпика №1:");
         System.out.println(taskManager.getEpicById(epic1.getId()));
 

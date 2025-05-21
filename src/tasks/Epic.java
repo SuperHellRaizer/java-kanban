@@ -20,7 +20,7 @@ public class Epic extends Task {
         return subtasks;
     }
 
-    public void updateSubtask(Subtask subtask){
+    public void updateSubtask(Subtask subtask) {
         subtasks.remove(subtask);
         subtasks.add(subtask);
     }

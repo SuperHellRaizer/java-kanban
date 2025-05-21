@@ -43,7 +43,7 @@ public class TaskManager {
         tasks.clear();
     }
 
-    // Методы для эпиков
+    //Методы для эпиков
     public ArrayList<Epic> getAllEpics() {
         return new ArrayList<>(epics.values());
     }
